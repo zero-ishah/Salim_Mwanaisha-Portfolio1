@@ -470,7 +470,7 @@ h2 {
   display: flex;
   width: max-content;
   gap: 10px;
-  animation: portfolioReel 26s linear infinite;
+  animation: portfolioReel 70s linear infinite;
 }
 
 .reel-bar:hover .reel-track {
