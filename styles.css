@@ -430,6 +430,49 @@ h2 {
   font-size: 0.94rem;
 }
 
+.story-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 0 0 18px;
+}
+
+.story-strip article {
+  min-height: 168px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+}
+
+.story-strip span {
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 14px;
+  place-items: center;
+  border-radius: 50%;
+  color: #031044;
+  background: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.story-strip strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.98rem;
+  line-height: 1.2;
+}
+
+.story-strip p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
 .section-panel,
 .contact-section,
 .glass-card {
@@ -841,6 +884,10 @@ h2 {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .story-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .contact-actions {
     justify-content: flex-start;
   }
@@ -919,8 +966,8 @@ h2 {
   }
 
   h2 {
-    font-size: clamp(1.8rem, 8vw, 2.6rem);
-    line-height: 1.06;
+    font-size: clamp(1.35rem, 6vw, 1.9rem);
+    line-height: 1.12;
   }
 
   .hero-intro,
@@ -984,6 +1031,24 @@ h2 {
 
   .metrics-strip div {
     padding: 17px;
+  }
+
+  .story-strip {
+    grid-template-columns: 1fr;
+    gap: 9px;
+    margin-bottom: 14px;
+  }
+
+  .story-strip article {
+    min-height: auto;
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .story-strip span {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 10px;
   }
 
   .section-panel,
