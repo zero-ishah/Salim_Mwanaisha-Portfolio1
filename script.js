@@ -1,4 +1,6 @@
 const portfolioItems = [
+  { src: "assets/optimized/al-hajun-egypt-escape.webp", title: "Egypt Escape - Al Hajun", category: "social" },
+  { src: "assets/optimized/al-hajun-spiritual-journey.webp", title: "Al Hajun Spiritual Journey", category: "social" },
   { src: "assets/optimized/August !st week/ayah of the day anwaar copy.webp", title: "Ayah of the day anwaar", category: "faith" },
   { src: "assets/optimized/August !st week/ayah of the day anwaar2 copy.webp", title: "Ayah of the day anwaar2", category: "faith" },
   { src: "assets/optimized/August !st week/Ayat of the day 1 copy.webp", title: "Ayat of the day 1", category: "faith" },
@@ -117,6 +119,7 @@ renderPortfolio();
 
 motionFrames.forEach((frame, frameIndex) => {
   const images = frame.querySelectorAll("img");
+  if (images.length < 2) return;
   let activeIndex = 0;
 
   window.setInterval(() => {

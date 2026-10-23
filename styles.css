@@ -353,6 +353,8 @@ h2 {
 
 .glass-preview img {
   border-radius: 22px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.94);
 }
 
 .motion-frame img {
