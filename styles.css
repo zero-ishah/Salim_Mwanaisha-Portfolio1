@@ -353,6 +353,9 @@ h2 {
 
 .glass-preview img {
   border-radius: 22px;
+}
+
+.glass-preview img.hero-fit {
   object-fit: contain;
   background: rgba(255, 255, 255, 0.94);
 }
