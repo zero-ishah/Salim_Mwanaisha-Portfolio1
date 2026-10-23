@@ -73,7 +73,13 @@ const portfolioItems = [
   { src: "assets/optimized/week4/nairobi west jumuah mubarak week 4 copy.webp", title: "Nairobi west jumuah mubarak week 4", category: "faith" },
   { src: "assets/optimized/week4/NWM Jumuah mubarak week 4 Copy.webp", title: "Jumuah mubarak week 4", category: "faith" },
   { src: "assets/optimized/week4/week challenge Nwm.webp", title: "Week challenge", category: "community" },
-  { src: "assets/optimized/week4/weekday challenge masjid taqwa copy.webp", title: "Weekday challenge masjid taqwa", category: "community" }
+  { src: "assets/optimized/week4/weekday challenge masjid taqwa copy.webp", title: "Weekday challenge masjid taqwa", category: "community" },
+  { src: "assets/optimized/jienzi-africa/jienzi-leaflet-copy.webp", title: "JiEnzi Skates Club", category: "community" },
+  { src: "assets/optimized/jienzi-africa/jienzi-mashujaa.webp", title: "Happy Mashujaa Day", category: "social" },
+  { src: "assets/optimized/jienzi-africa/jienzi-mazingira-day-copy.webp", title: "Mazingira Day Campaign", category: "community" },
+  { src: "assets/optimized/jienzi-africa/jienzi-quote-1.webp", title: "JiEnzi Focus Quote", category: "social" },
+  { src: "assets/optimized/jienzi-africa/slide-2.webp", title: "Why We Exist", category: "community" },
+  { src: "assets/optimized/jienzi-africa/slide-3-copy.webp", title: "What We Do", category: "community" }
 ];
 
 const gallery = document.querySelector(".gallery-grid");
