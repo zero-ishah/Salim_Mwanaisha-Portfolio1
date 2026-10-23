@@ -89,6 +89,28 @@ const lightbox = document.querySelector(".lightbox");
 const lightboxImage = document.querySelector(".lightbox img");
 const lightboxClose = document.querySelector(".lightbox-close");
 const motionFrames = document.querySelectorAll(".motion-frame");
+const themeToggle = document.querySelector(".theme-toggle");
+
+function applyTheme(theme) {
+  const isLight = theme === "light";
+  const label = isLight ? "Switch to dark theme" : "Switch to light theme";
+
+  document.documentElement.dataset.theme = isLight ? "light" : "dark";
+  themeToggle.textContent = isLight ? "☾" : "☼";
+  themeToggle.setAttribute("aria-label", label);
+  themeToggle.title = label;
+  themeToggle.setAttribute("aria-pressed", String(isLight));
+
+  try {
+    localStorage.setItem("portfolio-theme", isLight ? "light" : "dark");
+  } catch {}
+}
+
+applyTheme(document.documentElement.dataset.theme === "light" ? "light" : "dark");
+
+themeToggle.addEventListener("click", () => {
+  applyTheme(document.documentElement.dataset.theme === "light" ? "dark" : "light");
+});
 
 function titleCaseCategory(category) {
   return category.charAt(0).toUpperCase() + category.slice(1);

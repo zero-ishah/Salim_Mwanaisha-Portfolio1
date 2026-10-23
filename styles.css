@@ -1,15 +1,55 @@
 :root {
-  --ink: #f7fbff;
-  --muted: #b8cdf2;
-  --deep: #02081f;
+  color-scheme: dark;
+  --ink: #f1f5f7;
+  --muted: #a6b4bf;
+  --deep: #05080b;
   --blue: #0b5cff;
-  --cyan: #79c7ff;
+  --cyan: #54aabd;
   --lime: #b7f85a;
   --rose: #ff78b7;
   --glass: rgba(255, 255, 255, 0.12);
   --glass-strong: rgba(255, 255, 255, 0.2);
-  --line: rgba(255, 255, 255, 0.22);
-  --shadow: 0 28px 70px rgba(0, 23, 96, 0.45);
+  --line: rgba(215, 232, 239, 0.17);
+  --shadow: 0 28px 70px rgba(0, 0, 0, 0.48);
+  --page-background:
+    radial-gradient(circle at 18% 24%, rgba(16, 77, 96, 0.2), transparent 30rem),
+    radial-gradient(circle at 86% 12%, rgba(17, 53, 82, 0.18), transparent 28rem),
+    linear-gradient(160deg, #050608 0%, #071117 54%, #081923 100%);
+  --grid-line: rgba(255, 255, 255, 0.025);
+  --page-shade: linear-gradient(to bottom, rgba(2, 8, 31, 0.06), rgba(2, 8, 31, 0.36));
+  --header-bg: rgba(5, 8, 12, 0.78);
+  --panel-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.035));
+  --surface: rgba(255, 255, 255, 0.055);
+  --surface-strong: rgba(3, 8, 12, 0.28);
+  --surface-hover: rgba(255, 255, 255, 0.1);
+  --label: #b7c5cc;
+  --chip-bg: #d9f0f2;
+  --chip-ink: #102027;
+  --modal-bg: rgba(5, 8, 12, 0.94);
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --ink: #17262e;
+  --muted: #5c6b73;
+  --deep: #f3f6f5;
+  --line: rgba(28, 58, 69, 0.16);
+  --shadow: 0 24px 60px rgba(24, 55, 67, 0.12);
+  --page-background:
+    radial-gradient(circle at 18% 24%, rgba(96, 172, 178, 0.11), transparent 30rem),
+    radial-gradient(circle at 86% 12%, rgba(120, 157, 164, 0.1), transparent 28rem),
+    linear-gradient(160deg, #f8faf9 0%, #eef3f2 100%);
+  --grid-line: rgba(29, 65, 75, 0.045);
+  --page-shade: linear-gradient(to bottom, rgba(255, 255, 255, 0.02), rgba(219, 230, 229, 0.14));
+  --header-bg: rgba(248, 251, 250, 0.9);
+  --panel-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(239, 245, 244, 0.88));
+  --surface: rgba(25, 65, 76, 0.055);
+  --surface-strong: rgba(255, 255, 255, 0.72);
+  --surface-hover: rgba(34, 114, 128, 0.09);
+  --label: #5e7077;
+  --chip-bg: #153d48;
+  --chip-ink: #f5fbfa;
+  --modal-bg: rgba(247, 250, 249, 0.96);
 }
 
 * {
@@ -25,10 +65,7 @@ body {
   min-height: 100vh;
   color: var(--ink);
   font-family: Inter, Arial, sans-serif;
-  background:
-    radial-gradient(circle at 18% 24%, rgba(67, 139, 255, 0.72), transparent 30rem),
-    radial-gradient(circle at 86% 12%, rgba(12, 90, 255, 0.66), transparent 28rem),
-    linear-gradient(160deg, #020513 0%, #031044 45%, #0a5bff 100%);
+  background: var(--page-background);
 }
 
 body::before {
@@ -37,8 +74,8 @@ body::before {
   z-index: -2;
   content: "";
   background:
-    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 68px 68px;
   mask-image: linear-gradient(to bottom, black, transparent 78%);
 }
@@ -49,7 +86,7 @@ body::after {
   z-index: -1;
   content: "";
   pointer-events: none;
-  background: linear-gradient(to bottom, rgba(2, 8, 31, 0.18), rgba(2, 8, 31, 0.78));
+  background: var(--page-shade);
 }
 
 a {
@@ -83,7 +120,7 @@ button {
   padding: 8px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(2, 8, 31, 0.54);
+  background: var(--header-bg);
   box-shadow: var(--shadow);
   backdrop-filter: blur(24px) saturate(150%);
 }
@@ -121,6 +158,7 @@ button {
 .header-cta,
 .primary-btn,
 .secondary-btn,
+.theme-toggle,
 .filter-chip {
   border: 1px solid transparent;
   border-radius: 999px;
@@ -150,6 +188,24 @@ button {
 .header-cta {
   padding: 10px 16px;
   font-weight: 800;
+}
+
+.theme-toggle {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  place-items: center;
+  cursor: pointer;
+  color: var(--ink);
+  border-color: var(--line);
+  background: var(--surface);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.theme-toggle:hover {
+  background: var(--surface-hover);
 }
 
 .hero-section {
@@ -200,7 +256,7 @@ button {
   align-items: center;
   gap: 10px;
   margin: 0 0 18px;
-  color: #d6e6ff;
+  color: var(--label);
   font-size: 0.9rem;
   font-weight: 800;
 }
@@ -270,7 +326,7 @@ h2 {
 .secondary-btn {
   color: var(--ink);
   border-color: var(--line);
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--surface);
   backdrop-filter: blur(18px);
 }
 
@@ -310,12 +366,20 @@ h2 {
   animation: driftTwo 11s ease-in-out infinite alternate;
 }
 
+html[data-theme="light"] .orb-a {
+  background: rgba(36, 133, 145, 0.12);
+}
+
+html[data-theme="light"] .orb-b {
+  background: rgba(191, 93, 133, 0.1);
+}
+
 .glass-preview,
 .glass-card,
 .section-panel,
 .contact-section {
   border: 1px solid var(--line);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.075));
+  background: var(--panel-bg);
   box-shadow: var(--shadow);
   backdrop-filter: blur(28px) saturate(150%);
 }
@@ -395,7 +459,7 @@ h2 {
 .project-card span,
 .timeline span {
   display: block;
-  color: #d6e6ff;
+  color: var(--label);
   font-size: 0.8rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -415,13 +479,13 @@ h2 {
   margin-bottom: 18px;
   border: 1px solid var(--line);
   border-radius: 26px;
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--surface);
   backdrop-filter: blur(22px);
 }
 
 .metrics-strip div {
   padding: 14px;
-  background: rgba(2, 8, 31, 0.22);
+  background: var(--surface-strong);
 }
 
 .metrics-strip strong {
@@ -447,7 +511,7 @@ h2 {
   padding: 16px;
   border: 1px solid var(--line);
   border-radius: 22px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--surface);
   backdrop-filter: blur(20px);
 }
 
@@ -458,8 +522,8 @@ h2 {
   margin-bottom: 14px;
   place-items: center;
   border-radius: 50%;
-  color: #031044;
-  background: #ffffff;
+  color: var(--chip-ink);
+  background: var(--chip-bg);
   font-size: 0.78rem;
   font-weight: 900;
 }
@@ -510,7 +574,7 @@ h2 {
   padding: 8px;
   border: 1px solid var(--line);
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--surface);
   backdrop-filter: blur(20px);
 }
 
@@ -541,19 +605,19 @@ h2 {
   font-size: 0.88rem;
   color: var(--ink);
   border-color: var(--line);
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--surface);
 }
 
 .filter-chip.active {
-  color: #031044;
+  color: var(--chip-ink);
   border-color: transparent;
-  background: #ffffff;
+  background: var(--chip-bg);
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
   align-items: start;
 }
 
@@ -565,7 +629,7 @@ h2 {
   padding: 8px;
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--surface);
   animation: revealCard 700ms ease both;
   transition: opacity 280ms ease, transform 280ms ease, background 180ms ease;
 }
@@ -599,7 +663,7 @@ h2 {
 }
 
 .work-card:hover {
-  background: rgba(255, 255, 255, 0.16);
+  background: var(--surface-hover);
   transform: translateY(-5px);
 }
 
@@ -613,7 +677,7 @@ h2 {
   border: 0;
   position: relative;
   border-radius: 13px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--surface-strong);
 }
 
 .work-open img {
@@ -750,7 +814,7 @@ h2 {
   border: 1px solid var(--line);
   border-radius: 26px;
   color: var(--ink);
-  background: rgba(2, 8, 31, 0.86);
+  background: var(--modal-bg);
   box-shadow: var(--shadow);
   backdrop-filter: blur(24px);
 }
@@ -882,7 +946,7 @@ h2 {
   }
 
   .gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .project-grid {
@@ -913,18 +977,24 @@ h2 {
 
   .brand {
     min-width: 0;
+    gap: 8px;
   }
 
   .brand span:last-child {
     display: block;
     overflow: hidden;
-    max-width: 132px;
+    max-width: clamp(80px, 28vw, 132px);
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 0.9rem;
   }
 
   .brand-mark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .theme-toggle {
     width: 38px;
     height: 38px;
   }
@@ -1136,7 +1206,7 @@ h2 {
 
 @media (max-width: 420px) {
   .brand span:last-child {
-    max-width: 105px;
+    max-width: clamp(68px, 28vw, 105px);
   }
 
   h1 {
