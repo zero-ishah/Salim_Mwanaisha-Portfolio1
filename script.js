@@ -79,7 +79,9 @@ const portfolioItems = [
   { src: "assets/optimized/jienzi-africa/jienzi-mazingira-day-copy.webp", title: "Mazingira Day Campaign", category: "community" },
   { src: "assets/optimized/jienzi-africa/jienzi-quote-1.webp", title: "JiEnzi Focus Quote", category: "social" },
   { src: "assets/optimized/jienzi-africa/slide-2.webp", title: "Why We Exist", category: "community" },
-  { src: "assets/optimized/jienzi-africa/slide-3-copy.webp", title: "What We Do", category: "community" }
+  { src: "assets/optimized/jienzi-africa/slide-3-copy.webp", title: "What We Do", category: "community" },
+  { src: "assets/optimized/graphibytes/happy-fathers-day-graphi.webp", title: "Happy Father's Day - Graphibytes", category: "social" },
+  { src: "assets/optimized/graphibytes/mashujaa-day-2.webp", title: "Mashujaa Day - Graphibytes", category: "social" }
 ];
 
 const gallery = document.querySelector(".gallery-grid");
